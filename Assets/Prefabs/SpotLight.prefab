@@ -129,6 +129,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 1
   player: {fileID: 3877860840406694967, guid: f3bd702ed2fd642e1944e08657d3f785, type: 3}
-  spotAngle: 180
+  spotAngle: 110
