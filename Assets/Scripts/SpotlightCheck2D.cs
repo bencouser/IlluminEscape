@@ -9,7 +9,7 @@ public class SpotlightCheck2D : MonoBehaviour {
     private float checkRate = 1f;  // Rate at which to check for illumination (checks per second)
     private float nextCheck;
 
-    [SerializeField] private float spotAngle = 45;  // Set the spotlight angle in degrees
+    [SerializeField] private float spotAngle = 110;  // Set the spotlight angle in degrees
 
     private void Update() {
         if (Time.time > nextCheck) {
