@@ -2,7 +2,7 @@
 
 IlluminEscape is a 2D scroller game developed using Unity. In this eerie adventure, players must navigate through dark, sinister landscapes to find sources of light that will keep them sane. But beware, as spending too long in the darkness will lead to losing sanity and eventually facing death.
 
-![Game Preview](Assets/PrefabVisuals/Player.png)
+![Game Preview](Assets/PrefabVisuals/player.png)
 
 ## Features
 
