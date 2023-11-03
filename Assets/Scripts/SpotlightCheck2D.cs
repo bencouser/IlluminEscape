@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class SpotlightCheck2D : MonoBehaviour {
     
-    [SerializeField] private LayerMask obstacleMask;
-    [SerializeField] private GameObject player;  // Assign your player GameObject in the Inspector
-    private float checkRate = 0.5f;  // Rate at which to check for illumination (checks per second)
+    [SerializeField] private LayerMask obstacleMask; // Using Default Layer Mask
+    [SerializeField] private GameObject player;
+    private float checkRate = 1f;  // Rate at which to check for illumination (checks per second)
     private float nextCheck;
 
-    // Assuming the spotlight angle and direction are handled by your custom 2D spotlight solution
-    [SerializeField] private float spotAngle = 180;  // Set the spotlight angle in degrees
+    [SerializeField] private float spotAngle = 45;  // Set the spotlight angle in degrees
 
     private void Update() {
         if (Time.time > nextCheck) {
@@ -20,28 +19,34 @@ public class SpotlightCheck2D : MonoBehaviour {
     }
 
     private void CheckIllumination() {
-        Vector3 directionToPlayer = player.transform.position - transform.position;
-        float angleToPlayer = Vector3.Angle(-transform.up, directionToPlayer.normalized);  // Assuming light direction is -transform.up
+        Vector3 playerDisplacement = player.transform.position - transform.position;
+        float angleToPlayer = Vector3.Angle(-transform.up, playerDisplacement.normalized);  // Assuming light direction is -transform.up
 
         // Check if player is within light cone
         if (angleToPlayer < spotAngle / 2) {
-            float distanceToPlayer = directionToPlayer.magnitude;
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToPlayer, distanceToPlayer, obstacleMask);
+            float distanceToPlayer = playerDisplacement.magnitude;
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, playerDisplacement, distanceToPlayer, obstacleMask);
             if (hit.collider != null) {
                 if (hit.collider.gameObject == player) {
                     Debug.Log("Player is illuminated");
                 }
                 else {
                     Debug.Log("Player is not illuminated (obstacle in the way)");
-                    Debug.Log("Hit: " + hit.collider.gameObject.name);
                 }
             }
             else {
                 Debug.Log("Player is not illuminated");
-                Debug.DrawRay(transform.position, directionToPlayer, Color.red, 1f);
             }
         } else {
-            Debug.Log("angleToPlayer < spotAngle / 2");
+            Debug.Log("Player Not in Spotlight Angle");
         }
+
+        // Draw rays indicating the spotlight angle
+        float halfAngle = spotAngle / 2;
+        Vector3 rightBoundaryDirection = Quaternion.Euler(0, 0, halfAngle) * -transform.up;
+        Vector3 leftBoundaryDirection = Quaternion.Euler(0, 0, -halfAngle) * -transform.up;
+
+        Debug.DrawRay(transform.position, rightBoundaryDirection * 10, Color.yellow);  // Adjust length as needed
+        Debug.DrawRay(transform.position, leftBoundaryDirection * 10, Color.yellow);  // Adjust length as needed
     }
 }
