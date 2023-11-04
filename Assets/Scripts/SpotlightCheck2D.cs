@@ -1,15 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpotlightCheck2D : MonoBehaviour {
     
+    public static SpotlightCheck2D Instance { get; private set; }
+    public event EventHandler OnIllumination;
     [SerializeField] private LayerMask obstacleMask; // Using Default Layer Mask
     [SerializeField] private GameObject player;
+    [SerializeField] private float spotAngle = 110;  // Set the spotlight angle in degrees
     private float checkRate = 1f;  // Rate at which to check for illumination (checks per second)
     private float nextCheck;
 
-    [SerializeField] private float spotAngle = 110;  // Set the spotlight angle in degrees
+    private void Awake() {
+        Instance = this;
+    }
+
 
     private void Update() {
         if (Time.time > nextCheck) {
@@ -18,7 +26,7 @@ public class SpotlightCheck2D : MonoBehaviour {
         }
     }
 
-    private void CheckIllumination() {
+    public void CheckIllumination() {
         Vector3 playerDisplacement = player.transform.position - transform.position;
         float angleToPlayer = Vector3.Angle(-transform.up, playerDisplacement.normalized);  // Assuming light direction is -transform.up
 
@@ -29,16 +37,17 @@ public class SpotlightCheck2D : MonoBehaviour {
             if (hit.collider != null) {
                 if (hit.collider.gameObject == player) {
                     Debug.Log("Player is illuminated");
+                    OnIllumination?.Invoke(this, EventArgs.Empty);
                 }
                 else {
-                    Debug.Log("Player is not illuminated (obstacle in the way)");
+                    //Debug.Log("Player is not illuminated (obstacle in the way)");
                 }
             }
             else {
-                Debug.Log("Player is not illuminated");
+                //Debug.Log("Player is not illuminated");
             }
         } else {
-            Debug.Log("Player Not in Spotlight Angle");
+            //Debug.Log("Player Not in Spotlight Angle");
         }
 
         // Draw rays indicating the spotlight angle
