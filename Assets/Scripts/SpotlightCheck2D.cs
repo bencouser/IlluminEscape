@@ -6,18 +6,12 @@ using UnityEngine;
 
 public class SpotlightCheck2D : MonoBehaviour {
     
-    public static SpotlightCheck2D Instance { get; private set; }
     public event EventHandler OnIllumination;
     [SerializeField] private LayerMask obstacleMask; // Using Default Layer Mask
     [SerializeField] private GameObject player;
     [SerializeField] private float spotAngle = 110;  // Set the spotlight angle in degrees
     private float checkRate = 1f;  // Rate at which to check for illumination (checks per second)
     private float nextCheck;
-
-    private void Awake() {
-        Instance = this;
-    }
-
 
     private void Update() {
         if (Time.time > nextCheck) {
