@@ -30,7 +30,6 @@ public class SpotlightCheck2D : MonoBehaviour {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, playerDisplacement, distanceToPlayer, obstacleMask);
             if (hit.collider != null) {
                 if (hit.collider.gameObject == player) {
-                    Debug.Log("Player is illuminated");
                     OnIllumination?.Invoke(this, EventArgs.Empty);
                 }
                 else {

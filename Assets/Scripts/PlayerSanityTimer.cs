@@ -17,7 +17,6 @@ public class PlayerSanityTimer : MonoBehaviour
     foreach (SpotlightCheck2D spotlight in spotlights) {
         spotlight.OnIllumination += SpotlightCheck2D_OnIllumination;
     }
-    Debug.Log("PST Start");
     }
 
     private void Update() {
