@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerSanityTimer : MonoBehaviour
 {
 
-    [SerializeField] private float sanityMeter = 30f; // Max sanity
+    [SerializeField] private float sanityMeter = 10f; // Max sanity
     [SerializeField] private float sanityRestoreCooldown = 1f; // In Seconds
     private float lastSanityRestoreTime;
     private float insanityRate = 1f; // Rate of sanity loss
@@ -30,7 +30,7 @@ public class PlayerSanityTimer : MonoBehaviour
     }
 
     private void SpotlightCheck2D_OnIllumination(object sender, EventArgs e) {
-        if (Time.time - lastSanityRestoreTime >= sanityRestoreCooldown) {
+        if (Time.time - lastSanityRestoreTime >= sanityRestoreCooldown && sanityMeter > 0.01) {
             sanityMeter = 30f;
             lastSanityRestoreTime = Time.time;
             Debug.Log("Sanity Restored");
