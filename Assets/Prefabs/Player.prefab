@@ -34,6 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3858509578315310644}
+  - {fileID: 4973291379176623259}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &8413006876945099909
@@ -136,6 +137,118 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sanityMeter: 30
+  sanityRestoreCooldown: 1
+--- !u!1 &4540808870459319222
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4973291379176623259}
+  - component: {fileID: 8810036324895302577}
+  m_Layer: 0
+  m_Name: SanityLight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4973291379176623259
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4540808870459319222}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1746737, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8054750544617296881}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8810036324895302577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4540808870459319222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 1
+  m_LightType: 1
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_LightVolumeIntensity: 1
+  m_LightVolumeIntensityEnabled: 0
+  m_ApplyToSortingLayers: 00000000
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowIntensityEnabled: 0
+  m_ShadowIntensity: 0.75
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: -0.0158, y: -0.035786618, z: 0}
+    m_Extent: {x: 0.1419, y: 0.13498662, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: 0.10137367, y: 0.028729826, z: 0}
+  - {x: 0.0881753, y: 0.047267973, z: 0}
+  - {x: 0.066904545, y: 0.06923996, z: 0}
+  - {x: 0.04224682, y: 0.08026752, z: 0}
+  - {x: 0.01956892, y: 0.08061996, z: 0}
+  - {x: -0.00233078, y: 0.09252423, z: 0}
+  - {x: -0.027723312, y: 0.09204319, z: 0}
+  - {x: -0.056877136, y: 0.08817503, z: 0}
+  - {x: -0.082598686, y: 0.083417386, z: 0}
+  - {x: -0.104727745, y: 0.059445202, z: 0}
+  - {x: -0.12310791, y: 0.048948467, z: 0}
+  - {x: -0.1341362, y: 0.03506449, z: 0}
+  - {x: -0.14526272, y: 0.026751548, z: 0}
+  - {x: -0.14639378, y: 0.008442968, z: 0}
+  - {x: -0.15309429, y: -0.0025846958, z: 0}
+  - {x: -0.14922619, y: -0.028147861, z: 0}
+  - {x: -0.14805984, y: -0.050277255, z: 0}
+  - {x: -0.13486099, y: -0.07240666, z: 0}
+  - {x: -0.12795544, y: -0.09796977, z: 0}
+  - {x: -0.114071846, y: -0.112588614, z: 0}
+  - {x: -0.109350204, y: -0.12371479, z: 0}
+  - {x: -0.093387604, y: -0.13336042, z: 0}
+  - {x: -0.080267906, y: -0.14998394, z: 0}
+  - {x: -0.062057495, y: -0.16027662, z: 0}
+  - {x: -0.040086746, y: -0.17077324, z: 0}
+  - {x: 0.010773659, y: -0.16960694, z: 0}
+  - {x: 0.054450512, y: -0.1528171, z: 0}
+  - {x: 0.08719635, y: -0.12077299, z: 0}
+  - {x: 0.105406284, y: -0.09970662, z: 0}
+  - {x: 0.11653185, y: -0.07343742, z: 0}
+  - {x: 0.114071846, y: -0.04076402, z: 0}
+  - {x: 0.11359072, y: -0.008189052, z: 0}
+  - {x: 0.10613108, y: 0.013782978, z: 0}
 --- !u!1 &7825083387266930838
 GameObject:
   m_ObjectHideFlags: 0

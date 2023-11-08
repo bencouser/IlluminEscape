@@ -3,10 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSanityTimer : MonoBehaviour
+public class PlayerSanityMeter : MonoBehaviour
 {
 
-    [SerializeField] private float sanityMeter = 10f; // Max sanity
+    public event EventHandler OnSanityChanged;
+
+    public class OnSanityChangedEventArgs : EventArgs {
+        public float sanityMeterNormalized;
+    }
+
+    [SerializeField] private float sanityMeterMax = 10f; // Max sanity
+    private float sanityMeter = 10f; // Max sanity
     [SerializeField] private float sanityRestoreCooldown = 1f; // In Seconds
     private float lastSanityRestoreTime;
     private float insanityRate = 1f; // Rate of sanity loss
@@ -21,6 +28,11 @@ public class PlayerSanityTimer : MonoBehaviour
 
     private void Update() {
         sanityMeter -= insanityRate * Time.deltaTime;
+
+        OnSanityChanged?.Invoke(this, new OnSanityChangedEventArgs{
+            sanityMeterNormalized = sanityMeter / sanityMeterMax
+        });
+
         if (sanityMeter <= 0) {
             Debug.Log("Player has gone MAD!");
             this.enabled = false;
@@ -30,7 +42,7 @@ public class PlayerSanityTimer : MonoBehaviour
 
     private void SpotlightCheck2D_OnIllumination(object sender, EventArgs e) {
         if (Time.time - lastSanityRestoreTime >= sanityRestoreCooldown && sanityMeter > 0.01) {
-            sanityMeter = 30f;
+            sanityMeter = sanityMeterMax;
             lastSanityRestoreTime = Time.time;
             Debug.Log("Sanity Restored");
         }
