@@ -9,14 +9,9 @@ public class ShadowEnemyMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float enemySpeed = 2f;
     [SerializeField] private Transform groundDetection;
+    [SerializeField] private Rigidbody2D enemyRigidbody;
 
     private bool movingRight = true;
-    private Rigidbody2D enemyRigidbody;
-
-    private void Start()
-    {
-        enemyRigidbody = GetComponent<Rigidbody2D>();
-    }
 
     private void Update()
     {
