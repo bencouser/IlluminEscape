@@ -8,7 +8,7 @@ public class RedShadowEnemyMovement : MonoBehaviour
 
 
     [SerializeField] private Transform player;
-    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float enemySpeed = 5f;
     [SerializeField] private float enemyRange = 10f;
 
     public enum State {
@@ -22,6 +22,7 @@ public class RedShadowEnemyMovement : MonoBehaviour
     private float lockOnTimer = 0f;
     private float attackTimerMax = 5f;
     private float attackTimer = 0f;
+    private Vector2 attackDirection;
     
 
     private State state;
@@ -43,12 +44,15 @@ public class RedShadowEnemyMovement : MonoBehaviour
                 // Lock On Animation Player Here
                 lockOnTimer += Time.deltaTime;
                 if (lockOnTimer > lockOnTimerMax) {
-                    // Get Direction to player
+                    Debug.Log("Angle: " + attackDirection);
                     state = State.Attack;
+                    // Get Direction to player
+                    attackDirection = (player.position - transform.position).normalized;
                 }
                 break;
             case State.Attack:
-                // Move fast towards lock on direction
+                // Move towards lock on direction
+                transform.Translate(attackDirection * enemySpeed * Time.deltaTime, Space.World);
                 attackTimer += Time.deltaTime;
                 if (attackTimer > attackTimerMax) {
                     state = State.Lost;
@@ -61,5 +65,6 @@ public class RedShadowEnemyMovement : MonoBehaviour
         }
 
     }
+
 }
 
