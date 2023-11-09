@@ -20,7 +20,6 @@ public class PlayerSanityMeterUI : MonoBehaviour
         if (e is PlayerSanityMeter.OnSanityChangedEventArgs args) {
             // Assuming you want the intensity to be proportional to the sanity meter.
             sanityLight.intensity = args.sanityMeterNormalized;
-            Debug.Log(sanityLight.intensity);
         }
     }
 
