@@ -44,11 +44,11 @@ public class SpotlightCheck2D : MonoBehaviour {
         }
 
         // Draw rays indicating the spotlight angle
-        float halfAngle = spotAngle / 2;
+/*         float halfAngle = spotAngle / 2;
         Vector3 rightBoundaryDirection = Quaternion.Euler(0, 0, halfAngle) * -transform.up;
         Vector3 leftBoundaryDirection = Quaternion.Euler(0, 0, -halfAngle) * -transform.up;
 
         Debug.DrawRay(transform.position, rightBoundaryDirection * 10, Color.yellow);  // Adjust length as needed
-        Debug.DrawRay(transform.position, leftBoundaryDirection * 10, Color.yellow);  // Adjust length as needed
+        Debug.DrawRay(transform.position, leftBoundaryDirection * 10, Color.yellow);  // Adjust length as needed */
     }
 }

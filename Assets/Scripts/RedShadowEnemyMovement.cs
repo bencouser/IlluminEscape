@@ -18,6 +18,9 @@ public class RedShadowEnemyMovement : MonoBehaviour
         Lost
     }
 
+    private float idleAmplitude = 5f;
+    private float idleFrequency = 1f;
+    private Vector2 startPosition;
     private float lockOnTimerMax = 5f;
     private float lockOnTimer = 0f;
     private float attackTimerMax = 5f;
@@ -29,15 +32,18 @@ public class RedShadowEnemyMovement : MonoBehaviour
 
     private void Start() {
         state = State.Idle;
+        startPosition = this.transform.position;
     }
 
     private void Update() {
-    
+        //Debug.Log(state);
         switch (state) {
             case State.Idle:
                 if (Vector2.Distance(this.transform.position, player.transform.position) < enemyRange) {
                     state = State.LockOn;
                 }
+                Vector2 oscillation = new Vector2(idleAmplitude * Mathf.Sin(Time.time * idleFrequency), 0);
+                transform.position = startPosition + oscillation;
                 break;
             case State.LockOn:
                 // Lock On Animation Player Here
