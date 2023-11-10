@@ -19,11 +19,11 @@ public class PlayerSanityMeter : MonoBehaviour
     private float insanityRate = 1f; // Rate of sanity loss
 
     private void Start() {
-    // Retrieve all instances of SpotlightCheck2D
-    SpotlightCheck2D[] spotlights = FindObjectsOfType<SpotlightCheck2D>();
-    foreach (SpotlightCheck2D spotlight in spotlights) {
-        spotlight.OnIllumination += SpotlightCheck2D_OnIllumination;
-    }
+        // Retrieve all instances of SpotlightCheck2D
+        SpotlightCheck2D[] spotlights = FindObjectsOfType<SpotlightCheck2D>();
+        foreach (SpotlightCheck2D spotlight in spotlights) {
+            spotlight.OnIllumination += SpotlightCheck2D_OnIllumination;
+        }
     }
 
     private void Update() {
