@@ -32,7 +32,6 @@ public class RedShadowEnemyMovement : MonoBehaviour
     }
 
     private void Update() {
-        Debug.Log(state);
     
         switch (state) {
             case State.Idle:
@@ -44,7 +43,6 @@ public class RedShadowEnemyMovement : MonoBehaviour
                 // Lock On Animation Player Here
                 lockOnTimer += Time.deltaTime;
                 if (lockOnTimer > lockOnTimerMax) {
-                    Debug.Log("Angle: " + attackDirection);
                     state = State.Attack;
                     // Get Direction to player
                     attackDirection = (player.position - transform.position).normalized;
@@ -60,11 +58,19 @@ public class RedShadowEnemyMovement : MonoBehaviour
                 break;
             case State.Lost:
                 // Object no longer needed
-                Destroy(this.gameObject);
+                DestroyThis();
                 break;
         }
 
     }
+     
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.CompareTag(player.name) && state == State.Attack) {
+            DestroyThis();
+        }
+    }
+
+    private void DestroyThis() => Destroy(this.gameObject);
 
 }
 
