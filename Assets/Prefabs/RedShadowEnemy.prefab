@@ -93,8 +93,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 8054750544617296881, guid: f3bd702ed2fd642e1944e08657d3f785, type: 3}
-  enemySpeed: 5
-  enemyRange: 10
+  enemyIdleSpeed: 1
+  enemyAttackSpeed: 5
+  enemyRange: 4
+  moveDistance: 5
 --- !u!1 &2257368158426459461
 GameObject:
   m_ObjectHideFlags: 0

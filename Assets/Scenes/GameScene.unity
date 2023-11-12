@@ -719,7 +719,7 @@ PrefabInstance:
       objectReference: {fileID: 1826430193}
     - target: {fileID: 4473648898994164292, guid: 9e99f7f977bcb42a68363a909d845dd6, type: 3}
       propertyPath: enemyRange
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2427715274031000772}
   m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,7 +137,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sanityMeter: 30
-  sanityRestoreCooldown: 1
 --- !u!1 &4540808870459319222
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,8 +203,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.0158, y: -0.035786618, z: 0}
-    m_Extent: {x: 0.1419, y: 0.13498662, z: 0}
+    m_Center: {x: -0.015950002, y: -0.040437885, z: 0}
+    m_Extent: {x: 0.14234999, y: 0.13296211, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
