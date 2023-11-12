@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5717655184023642994}
   - component: {fileID: 2427715274031000772}
   - component: {fileID: 6264948878336141507}
+  - component: {fileID: 8467929963448218062}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -152,6 +153,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sanityLight: {fileID: 8810036324895302577}
   playerSanityMeter: {fileID: 2427715274031000772}
+--- !u!95 &8467929963448218062
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3877860840406694967}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 331ffdc1ab3f24fc1bb423317775ff55, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4540808870459319222
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,8 +240,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.019950002, y: -0.041787885, z: 0}
-    m_Extent: {x: 0.14065, y: 0.13431212, z: 0}
+    m_Center: {x: -0.019300003, y: -0.03748662, z: 0}
+    m_Extent: {x: 0.1429, y: 0.13328663, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -291,7 +313,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.06, y: 0.06, z: 0.06}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8054750544617296881}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
