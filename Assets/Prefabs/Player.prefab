@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1664806717955612202}
   - component: {fileID: 5717655184023642994}
   - component: {fileID: 2427715274031000772}
+  - component: {fileID: 6264948878336141507}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -137,6 +138,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sanityMeter: 30
+--- !u!114 &6264948878336141507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3877860840406694967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f3274170404e475bb7bb6e6bc95148a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sanityLight: {fileID: 8810036324895302577}
+  playerSanityMeter: {fileID: 2427715274031000772}
 --- !u!1 &4540808870459319222
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,8 +218,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.015950002, y: -0.040437885, z: 0}
-    m_Extent: {x: 0.14234999, y: 0.13296211, z: 0}
+    m_Center: {x: -0.019950002, y: -0.041787885, z: 0}
+    m_Extent: {x: 0.14065, y: 0.13431212, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
