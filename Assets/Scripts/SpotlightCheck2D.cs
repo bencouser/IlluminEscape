@@ -33,14 +33,14 @@ public class SpotlightCheck2D : MonoBehaviour {
                     OnIllumination?.Invoke(this, EventArgs.Empty);
                 }
                 else {
-                    Debug.Log("Player is not illuminated (obstacle in the way)");
+                    //Debug.Log("Player is not illuminated (obstacle in the way)");
                 }
             }
             else {
-                Debug.Log("Player is not illuminated");
+                //Debug.Log("Player is not illuminated");
             }
         } else {
-            Debug.Log("Player Not in Spotlight Angle");
+            //Debug.Log("Player Not in Spotlight Angle");
         }
 
         // Draw rays indicating the spotlight angle

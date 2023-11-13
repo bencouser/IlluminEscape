@@ -27,12 +27,19 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col) {
         if (col.gameObject.CompareTag(GROUND_TAG)) {
-            isGrounded = true;
+            foreach (ContactPoint2D contact in col.contacts) {
+                if (contact.normal.y > 0.5f) {  // Adjust the value as needed for your game
+                    isGrounded = true;
+                    break; // Exit the loop as soon as one valid ground contact is found
+                }
+            }
         }
     }
 
     void OnCollisionExit2D(Collision2D col) {
-        isGrounded = false;
+        if (col.gameObject.CompareTag(GROUND_TAG)) {
+            isGrounded = false;
+        }
     }
 
 }
