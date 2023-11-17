@@ -35,6 +35,7 @@ public class PlayerSanityMeter : MonoBehaviour
 
         if (sanityMeter <= 0) {
             Debug.Log("Player has gone MAD!");
+            // Make an event to trigger respawn minigame
             this.enabled = false;
         }
         
