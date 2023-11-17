@@ -41,16 +41,16 @@ public class PlayerSanityMeter : MonoBehaviour
     }
 
     private void SpotlightCheck2D_OnIllumination(object sender, EventArgs e) {
-/*         if (Time.time - lastSanityRestoreTime >= sanityRestoreCooldown && sanityMeter > 0.01) {
+        if (Time.time - lastSanityRestoreTime >= sanityRestoreCooldown && sanityMeter > 0.01) {
             sanityMeter = sanityMeterMax;
             lastSanityRestoreTime = Time.time;
             Debug.Log("Sanity Restored");
-        } */
-
+        }
+/* 
         if (sanityMeter > 0.001) {
             Debug.Log("Restoring");
             sanityMeter += 2 * insanityRate * Time.deltaTime;
-        }
+        } */
     }
 
     // Unsubscribe when destroyed.

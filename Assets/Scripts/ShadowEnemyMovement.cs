@@ -12,7 +12,7 @@ public class ShadowEnemyMovement : MonoBehaviour
     [SerializeField] private Transform groundDetection;
     [SerializeField] private Rigidbody2D enemyRigidbody;
 
-    private float enemyRange = 2f;
+    private float enemyRange = .7f;
     private bool movingRight = true;
 
     private void Update()
