@@ -13,6 +13,7 @@ public class PlayerSanityMeter : MonoBehaviour
     }
 
     [SerializeField] private float sanityMeter = 10f; // Max sanity
+    [SerializeField] private Transform respawnPoint;
     private float sanityMeterMax = 10f; // Max sanity
     private float sanityRestoreCooldown = 1f; // In Seconds
     private float lastSanityRestoreTime;
@@ -35,10 +36,13 @@ public class PlayerSanityMeter : MonoBehaviour
 
         if (sanityMeter <= 0) {
             Debug.Log("Player has gone MAD!");
-            // Make an event to trigger respawn minigame
-            this.enabled = false;
+            Respawn();
         }
         
+    }
+
+    private void Respawn() {
+        this.transform.position = respawnPoint.position;
     }
 
     private void SpotlightCheck2D_OnIllumination(object sender, EventArgs e) {

@@ -45,7 +45,6 @@ GameObject:
   - component: {fileID: 5717655184023642994}
   - component: {fileID: 2427715274031000772}
   - component: {fileID: 6264948878336141507}
-  - component: {fileID: 8467929963448218062}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -171,6 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sanityMeter: 30
+  respawnPoint: {fileID: 5550579425469390888, guid: df0a9763fd1b24b0887714dc8f5e6ef0, type: 3}
 --- !u!114 &6264948878336141507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,27 +185,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sanityLight: {fileID: 8810036324895302577}
   playerSanityMeter: {fileID: 2427715274031000772}
---- !u!95 &8467929963448218062
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3877860840406694967}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 331ffdc1ab3f24fc1bb423317775ff55, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4540808870459319222
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,8 +251,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.0236, y: -0.03285, z: 0}
-    m_Extent: {x: 0.1321, y: 0.13115, z: 0}
+    m_Center: {x: -0.023100004, y: -0.034978405, z: 0}
+    m_Extent: {x: 0.1393, y: 0.1270216, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
