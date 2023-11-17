@@ -6,11 +6,13 @@ using UnityEngine;
 public class ShadowEnemyMovement : MonoBehaviour
 {
 
+    [SerializeField] private Transform player;
     [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private float enemySpeed = 2f;
+    [SerializeField] private float enemySpeed = 1f;
     [SerializeField] private Transform groundDetection;
     [SerializeField] private Rigidbody2D enemyRigidbody;
 
+    private float enemyRange = 2f;
     private bool movingRight = true;
 
     private void Update()
@@ -32,6 +34,13 @@ public class ShadowEnemyMovement : MonoBehaviour
                 movingRight = true;
             }
         }
+
+        if (Vector2.Distance(this.transform.position, player.position) < enemyRange ) {
+            Debug.Log("Contact");
+            DestroyThis();
+        }
     }
+    
+    private void DestroyThis() => Destroy(gameObject);
 }
 
