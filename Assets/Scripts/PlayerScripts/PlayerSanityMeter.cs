@@ -42,7 +42,7 @@ public class PlayerSanityMeter : MonoBehaviour
     }
 
     private void Respawn() {
-        this.transform.position = respawnPoint.position;
+        transform.position = respawnPoint.position;
         sanityMeter = sanityMeterMax;
     }
 
