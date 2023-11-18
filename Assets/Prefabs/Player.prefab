@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 193650242132965929}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: ItemHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 5717655184023642994}
   - component: {fileID: 2427715274031000772}
   - component: {fileID: 6264948878336141507}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46a337356c2d42599b0b28b5cc060cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sanityMeter: 30
+  sanityMeter: 10
   respawnPoint: {fileID: 5550579425469390888, guid: df0a9763fd1b24b0887714dc8f5e6ef0, type: 3}
 --- !u!114 &6264948878336141507
 MonoBehaviour:
@@ -251,8 +251,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.023100004, y: -0.034978405, z: 0}
-    m_Extent: {x: 0.1393, y: 0.1270216, z: 0}
+    m_Center: {x: -0.024200004, y: -0.030454412, z: 0}
+    m_Extent: {x: 0.131, y: 0.13085441, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -306,7 +306,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3858509578315310644}
   - component: {fileID: 568820965082950757}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: PlayerVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
