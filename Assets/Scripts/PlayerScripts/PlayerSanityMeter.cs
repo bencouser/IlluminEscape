@@ -44,6 +44,7 @@ public class PlayerSanityMeter : MonoBehaviour
     private void Respawn() {
         transform.position = respawnPoint.position;
         sanityMeter = sanityMeterMax;
+        lastSanityRestoreTime = Time.time;
     }
 
     private void SpotlightCheck2D_OnIllumination(object sender, EventArgs e) {
