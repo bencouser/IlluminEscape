@@ -7,6 +7,7 @@ using UnityEngine;
 public class RedShadowEnemyMovement : MonoBehaviour
 {
     [SerializeField] private Transform player;
+    [SerializeField] private PlayerSanityMeter playerSanityMeter;
     [SerializeField] private float enemyIdleSpeed = 1f;
     [SerializeField] private float enemyAttackSpeed = 5f;
     [SerializeField] private float enemyRange = 10f;
@@ -83,7 +84,8 @@ public class RedShadowEnemyMovement : MonoBehaviour
     
     // Destroy Enemy On Contact (In future this will kill the player)
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.CompareTag(player.name) && state == State.Attack) {
+        if (collision.gameObject.CompareTag(player.name)) {
+            playerSanityMeter.GoMadAndRespawn();
             DestroyThis();
         }
     }

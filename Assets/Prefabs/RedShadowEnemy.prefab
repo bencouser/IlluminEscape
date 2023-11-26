@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 8054750544617296881, guid: f3bd702ed2fd642e1944e08657d3f785, type: 3}
+  playerSanityMeter: {fileID: 2427715274031000772, guid: f3bd702ed2fd642e1944e08657d3f785, type: 3}
   enemyIdleSpeed: 1
   enemyAttackSpeed: 5
   enemyRange: 4
