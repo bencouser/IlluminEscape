@@ -60,6 +60,11 @@ public class PlayerSanityMeter : MonoBehaviour
         } */
     }
 
+    public void GoMadAndRespawn() {
+        sanityMeter = 0;
+        Respawn();
+    }
+
     // Unsubscribe when destroyed.
     private void OnDestroy() {
         SpotlightCheck2D[] spotlights = FindObjectsOfType<SpotlightCheck2D>();

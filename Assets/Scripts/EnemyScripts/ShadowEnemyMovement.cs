@@ -7,6 +7,7 @@ public class ShadowEnemyMovement : MonoBehaviour
 {
 
     [SerializeField] private Transform player;
+    [SerializeField] private PlayerSanityMeter playerSanityMeter;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float enemySpeed = 1f;
     [SerializeField] private Transform groundDetection;
@@ -37,7 +38,8 @@ public class ShadowEnemyMovement : MonoBehaviour
 
         if (Vector2.Distance(this.transform.position, player.position) < enemyRange ) {
             Debug.Log("Contact");
-            DestroyThis();
+            playerSanityMeter.GoMadAndRespawn();
+            //DestroyThis();
         }
     }
     
