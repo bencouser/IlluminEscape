@@ -37,6 +37,9 @@ public class PlayerSanityMeter : MonoBehaviour
         if (sanityMeter <= 0) {
             Debug.Log("Player has gone MAD!");
             Respawn();
+            // Send Event to begin minigame
+            // Do this after respawn to ensure that the player doesnt go to far
+            // when falling off the edge
         }
         
     }
