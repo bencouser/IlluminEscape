@@ -1,12 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-
+using System.Runtime.CompilerServices;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class MinigameUI : MonoBehaviour
 {
-    [SerializeField] private Canvas minigameCanvas;
     private float delayTimer = 0f;
     private float delayTimerMax = 3f;
     private bool isWaiting = false;
@@ -20,32 +20,40 @@ public class MinigameUI : MonoBehaviour
 
     private void HandleSanityZero(object sender, EventArgs e) {
         Debug.Log("Time to play a game!");
-        minigameCanvas.gameObject.SetActive(true);
+        ToggleChildren(true);
         StartDelay(delayTimerMax);
         if (isWaiting) {
             delayTimer += Time.deltaTime;
+            Debug.Log(delayTimer);
 
             if (delayTimer >= 3f) {
+                Debug.Log("Minigame over");
                 isWaiting = false;
                 delayTimer = 0f;
-
-                minigameCanvas.gameObject.SetActive(false);
+                ToggleChildren(false);
             }
         }
         
     }
 
-    private void OnDestroy() {
-        // Unsubscribe to prevent memory leaks
-        PlayerSanityMeter playerSanityMeter = FindObjectOfType<PlayerSanityMeter>();
-        if (playerSanityMeter != null) {
-            playerSanityMeter.OnSanityZero -= HandleSanityZero;
+    private void ToggleChildren(bool activate = true) {
+        Transform canvasTransform = GetComponent<Transform> ();
+        Debug.Log(activate);
+
+        foreach (Transform child in canvasTransform) {
+            child.gameObject.SetActive(activate);
         }
     }
 
     private void StartDelay(float duration) {
         isWaiting = true;
-        delayTimer = duration;
+        delayTimer = 0f;
+    }
+
+    private void OnDestroy() {
+        PlayerSanityMeter playerSanityMeter = FindObjectOfType<PlayerSanityMeter>();
+        if (playerSanityMeter != null) {
+            playerSanityMeter.OnSanityZero -= HandleSanityZero;
+        }
     }
 }
-
