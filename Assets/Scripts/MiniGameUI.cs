@@ -18,14 +18,9 @@ public class MinigameUI : MonoBehaviour
         }
     }
 
-    private void HandleSanityZero(object sender, EventArgs e) {
-        Debug.Log("Time to play a game!");
-        ToggleChildren(true);
-        StartDelay(delayTimerMax);
+    private void Update() {
         if (isWaiting) {
             delayTimer += Time.deltaTime;
-            Debug.Log(delayTimer);
-
             if (delayTimer >= 3f) {
                 Debug.Log("Minigame over");
                 isWaiting = false;
@@ -33,7 +28,12 @@ public class MinigameUI : MonoBehaviour
                 ToggleChildren(false);
             }
         }
-        
+    }
+
+    private void HandleSanityZero(object sender, EventArgs e) {
+        Debug.Log("Time to play a game!");
+        ToggleChildren(true);
+        StartDelay(delayTimerMax);
     }
 
     private void ToggleChildren(bool activate = true) {

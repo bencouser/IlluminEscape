@@ -40,7 +40,6 @@ public class PlayerSanityMeter : MonoBehaviour
             Debug.Log("Player has gone MAD!");
             Respawn();
             // Send Event to begin minigame
-            Debug.Log("Sending event");
             OnSanityZero?.Invoke(this, EventArgs.Empty);
         }
         
