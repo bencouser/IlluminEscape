@@ -82,7 +82,6 @@ public class RedShadowEnemyMovement : MonoBehaviour
         transform.Rotate(0f, 180f, 0f);
     }
     
-    // Destroy Enemy On Contact (In future this will kill the player)
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag(player.name)) {
             playerSanityMeter.GoMadAndRespawn();
