@@ -11,6 +11,8 @@ public class PlayerSanityMeter : MonoBehaviour
     public class OnSanityChangedEventArgs : EventArgs {
         public float sanityMeterNormalized;
     }
+    
+    public event EventHandler OnSanityZero;
 
     [SerializeField] private Transform respawnPoint;
     private float sanityMeter = 10f; // Max sanity
@@ -38,8 +40,7 @@ public class PlayerSanityMeter : MonoBehaviour
             Debug.Log("Player has gone MAD!");
             Respawn();
             // Send Event to begin minigame
-            // Do this after respawn to ensure that the player doesnt go to far
-            // when falling off the edge
+            OnSanityZero?.Invoke(this, EventArgs.Empty);
         }
         
     }
