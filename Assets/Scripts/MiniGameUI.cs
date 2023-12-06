@@ -30,7 +30,7 @@ public class MinigameUI : MonoBehaviour
         }
     }
 
-    private void HandleSanityZero(object sender, EventArgs e) {
+    public void HandleSanityZero(object sender, EventArgs e) {
         Debug.Log("Time to play a game!");
         ToggleChildren(true);
         StartDelay(delayTimerMax);
