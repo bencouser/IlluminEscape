@@ -10,10 +10,8 @@ public class TankShadowEnemyMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D enemyRigidbody;
     private PlayerSanityMeter playerSanityMeter;
     private float enemySpeed = 0.25f;
-    //private Vector3 StartingPosition;
 
     private void Start() {
-        //StartingPosition = enemyRigidbody.transform.position;
         // Retrive all instances of SpotlightCheck2D
         SpotlightCheck2D[] spotlights = FindObjectsOfType<SpotlightCheck2D>();
         foreach (SpotlightCheck2D spotlight in spotlights) {
