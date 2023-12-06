@@ -12,7 +12,6 @@ public class ShadowEnemyMovement : MonoBehaviour
     [SerializeField] private float enemySpeed = 1f;
     [SerializeField] private Transform groundDetection;
     [SerializeField] private Rigidbody2D enemyRigidbody;
-
     private float enemyRange = .7f;
     private bool movingRight = true;
 
