@@ -7,12 +7,13 @@ public class TankShadowEnemyMovement : MonoBehaviour
 {
 
     [SerializeField] private Transform player;
+    [SerializeField] private Rigidbody2D enemyRigidbody;
     private PlayerSanityMeter playerSanityMeter;
     private float enemySpeed = 0.25f;
-    private Vector3 StartingPosition;
+    //private Vector3 StartingPosition;
 
     private void Start() {
-        StartingPosition = transform.position;
+        //StartingPosition = enemyRigidbody.transform.position;
         // Retrive all instances of SpotlightCheck2D
         SpotlightCheck2D[] spotlights = FindObjectsOfType<SpotlightCheck2D>();
         foreach (SpotlightCheck2D spotlight in spotlights) {
@@ -22,7 +23,7 @@ public class TankShadowEnemyMovement : MonoBehaviour
 
     private void Update() {
         float moveStep = enemySpeed * Time.deltaTime;
-        this.transform.Translate(moveStep, 0, 0, Space.World);
+        enemyRigidbody.transform.Translate(moveStep, 0, 0, Space.World);
     }
 
     private void SpotlightCheck2D_OnIllumination(object sender, EventArgs e) {
