@@ -20,6 +20,7 @@ public class PlayerSanityMeter : MonoBehaviour
     private float sanityRestoreCooldown = 0.25f; // In Seconds
     private float lastSanityRestoreTime;
     private float insanityRate = 1f; // Rate of sanity loss
+    private bool isInLight = true;
 
     private void Start() {
         // Retrieve all instances of SpotlightCheck2D
@@ -42,6 +43,12 @@ public class PlayerSanityMeter : MonoBehaviour
             // Send Event to begin minigame
             OnSanityZero?.Invoke(this, EventArgs.Empty);
         }
+
+        // Check if we are in light or not (bool value)
+        // bool value determins sign of sanity change
+        if (isInLight) {
+
+        }
         
     }
 
@@ -52,16 +59,16 @@ public class PlayerSanityMeter : MonoBehaviour
     }
 
     private void SpotlightCheck2D_OnIllumination(object sender, EventArgs e) {
-        if (Time.time - lastSanityRestoreTime >= sanityRestoreCooldown && sanityMeter > 0.01) {
+/*         if (Time.time - lastSanityRestoreTime >= sanityRestoreCooldown && sanityMeter > 0.01) {
             sanityMeter = sanityMeterMax;
             lastSanityRestoreTime = Time.time;
             Debug.Log("Sanity Restored");
-        }
-/* 
+        } */
+
         if (sanityMeter > 0.001) {
             Debug.Log("Restoring");
-            sanityMeter += 2 * insanityRate * Time.deltaTime;
-        } */
+            sanityMeter += 10 * insanityRate * Time.deltaTime;
+        }
     }
 
     public void GoMadAndRespawn() {
