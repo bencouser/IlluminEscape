@@ -17,7 +17,7 @@ public class PlayerSanityMeter : MonoBehaviour
     [SerializeField] private Transform respawnPoint;
     private float sanityMeter = 10f; // Max sanity
     private float sanityMeterMax = 10f; // Max sanity
-    private float sanityRestoreCooldown = 0.5f; // In Seconds
+    private float sanityRestoreCooldown = 0.25f; // In Seconds
     private float lastSanityRestoreTime;
     private float insanityRate = 1f; // Rate of sanity loss
 
