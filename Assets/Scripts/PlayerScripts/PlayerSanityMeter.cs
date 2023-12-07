@@ -31,7 +31,14 @@ public class PlayerSanityMeter : MonoBehaviour
     }
 
     private void Update() {
-        sanityMeter -= insanityRate * Time.deltaTime;
+        // Check if we are in light or not (bool value)
+        // bool value determins sign of sanity change
+        if (isInLight) {
+            Debug.Log("Restoring");
+            sanityMeter += 10 * insanityRate * Time.deltaTime;
+        } else {
+            sanityMeter -= insanityRate * Time.deltaTime;
+        }
 
         OnSanityChanged?.Invoke(this, new OnSanityChangedEventArgs{
             sanityMeterNormalized = sanityMeter / sanityMeterMax
@@ -43,13 +50,6 @@ public class PlayerSanityMeter : MonoBehaviour
             // Send Event to begin minigame
             OnSanityZero?.Invoke(this, EventArgs.Empty);
         }
-
-        // Check if we are in light or not (bool value)
-        // bool value determins sign of sanity change
-        if (isInLight) {
-
-        }
-        
     }
 
     private void Respawn() {
@@ -66,9 +66,14 @@ public class PlayerSanityMeter : MonoBehaviour
         } */
 
         if (sanityMeter > 0.001) {
-            Debug.Log("Restoring");
-            sanityMeter += 10 * insanityRate * Time.deltaTime;
+            isInLight = true;
+            SanityRestoreCooldown();
         }
+    }
+
+    private void SanityRestoreCooldown() {
+        // Need to find a way to delay this but only trigger out of the light
+        isInLight = false;
     }
 
     public void GoMadAndRespawn() {
