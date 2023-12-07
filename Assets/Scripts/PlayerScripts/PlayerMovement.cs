@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -10,6 +6,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float playerSpeed = 3f;
     [SerializeField] private float playerJumpForce = 10f;
     [SerializeField] private new Rigidbody2D rigidbody2D;
+    [SerializeField] private Transform finishPoint;
     private bool isGrounded;
     private string GROUND_TAG = "Ground";
 
@@ -22,6 +19,12 @@ public class Player : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isGrounded) {
             rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, playerJumpForce);
+        }
+
+        float distanceToFinish = Vector3.Distance(this.transform.position, finishPoint.transform.position);
+
+        if (distanceToFinish < 1f) {
+            print("Level Complete");
         }
     }
 
