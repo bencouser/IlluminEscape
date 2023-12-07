@@ -6,7 +6,11 @@ using UnityEngine;
 
 public class SpotlightCheck2D : MonoBehaviour {
     
-    public event EventHandler OnIllumination;
+    public event EventHandler<OnIlluminationEventArgs> OnIllumination;
+    public class OnIlluminationEventArgs : EventArgs {
+        public bool IsInLight { get; set; } // how to privatatise set
+    }
+
     [SerializeField] private LayerMask obstacleMask; // Using Floor Layer Mask
     [SerializeField] private GameObject player;
     [SerializeField] private float spotAngle = 50;  // Set the spotlight angle in degrees
@@ -30,7 +34,9 @@ public class SpotlightCheck2D : MonoBehaviour {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, playerDisplacement, distanceToPlayer, obstacleMask);
             if (hit.collider != null) {
                 if (hit.collider.gameObject == player) {
-                    OnIllumination?.Invoke(this, EventArgs.Empty);
+                    OnIllumination?.Invoke(this, new OnIlluminationEventArgs {
+                        IsInLight = true
+                    });
                 }
                 else {
                     //Debug.Log("Player is not illuminated (obstacle in the way)");

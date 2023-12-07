@@ -33,14 +33,15 @@ public class PlayerSanityMeter : MonoBehaviour
     private void Update() {
         // Check if we are in light or not (bool value)
         // bool value determins sign of sanity change
-        if (isInLight) {
+        if (isInLight && sanityMeter < sanityMeterMax) {
             Debug.Log("Restoring");
             sanityMeter += 10 * insanityRate * Time.deltaTime;
-        } else {
+        } else  if (!isInLight && sanityMeter > 0) {
             sanityMeter -= insanityRate * Time.deltaTime;
         }
 
         OnSanityChanged?.Invoke(this, new OnSanityChangedEventArgs{
+            // Want to push 1 if sanityMeter is greater than max
             sanityMeterNormalized = sanityMeter / sanityMeterMax
         });
 
@@ -58,15 +59,10 @@ public class PlayerSanityMeter : MonoBehaviour
         lastSanityRestoreTime = Time.time;
     }
 
-    private void SpotlightCheck2D_OnIllumination(object sender, EventArgs e) {
-/*         if (Time.time - lastSanityRestoreTime >= sanityRestoreCooldown && sanityMeter > 0.01) {
-            sanityMeter = sanityMeterMax;
-            lastSanityRestoreTime = Time.time;
-            Debug.Log("Sanity Restored");
-        } */
+    private void SpotlightCheck2D_OnIllumination(object sender, OnIlluminationEventArgs e) {
+        isInLight = e.IsInLight;
 
-        if (sanityMeter > 0.001) {
-            isInLight = true;
+        if (!isInLight && sanityMeter > 0.001) {
             SanityRestoreCooldown();
         }
     }
@@ -88,5 +84,4 @@ public class PlayerSanityMeter : MonoBehaviour
             spotlight.OnIllumination -= SpotlightCheck2D_OnIllumination;
         }
     }
-
 }
