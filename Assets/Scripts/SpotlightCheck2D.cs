@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class SpotlightCheck2D : MonoBehaviour {
     
-    //Hello
     public event EventHandler<OnIlluminationEventArgs> OnIllumination;
     public class OnIlluminationEventArgs : EventArgs {
         public bool IsInLight { get; set; } // how to privatatise set
@@ -30,7 +29,8 @@ public class SpotlightCheck2D : MonoBehaviour {
         if (angleToPlayer < spotAngle / 2) {
             float distanceToPlayer = playerDisplacement.magnitude;
             RaycastHit2D hit = Physics2D.Raycast(transform.position, playerDisplacement, distanceToPlayer, obstacleMask);
-            if (hit.collider != null && hit.collider.gameObject == player) {
+            // removed "hit.collider != null &&"
+            if (hit.collider.gameObject == player) {
                 OnIllumination?.Invoke(this, new OnIlluminationEventArgs {
                     IsInLight = true
                 });
