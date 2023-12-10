@@ -57,7 +57,7 @@ public class PlayerSanityMeter : MonoBehaviour
         lastSanityRestoreTime = Time.time;
     }
 
-    private void SpotlightCheck2D_OnIllumination(object sender, OnIlluminationEventArgs e) {
+    private void SpotlightCheck2D_OnIllumination(object sender, EventArgs e) {
         isInLight = e.IsInLight;
 
         if (!isInLight && sanityMeter > 0.001) {
