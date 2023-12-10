@@ -29,21 +29,22 @@ public class SpotlightCheck2D : MonoBehaviour {
         if (angleToPlayer < spotAngle / 2) {
             float distanceToPlayer = playerDisplacement.magnitude;
             RaycastHit2D hit = Physics2D.Raycast(transform.position, playerDisplacement, distanceToPlayer, obstacleMask);
-            if (hit.collider != null) {
-                if (hit.collider.gameObject == player) {
-                    OnIllumination?.Invoke(this, new OnIlluminationEventArgs {
-                        IsInLight = true
-                    });
-                }
-                else {
-                    //Debug.Log("Player is not illuminated (obstacle in the way)");
-                }
-            }
-            else {
-                //Debug.Log("Player is not illuminated");
+            if (hit.collider != null && hit.collider.gameObject == player) {
+                OnIllumination?.Invoke(this, new OnIlluminationEventArgs {
+                    IsInLight = true
+                });
+            } else {
+                //Debug.Log("Player is not illuminated ");
+                //Debug.Log("or Player is not illuminated (obstacle in the way)");
+                OnIllumination?.Invoke(this, new OnIlluminationEventArgs {
+                    IsInLight = false
+                });
             }
         } else {
             //Debug.Log("Player Not in Spotlight Angle");
+            OnIllumination?.Invoke(this, new OnIlluminationEventArgs {
+                IsInLight = false
+            });
         }
 
         // Draw rays indicating the spotlight angle
