@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class SpotlightCheck2D : MonoBehaviour {
     
+    //Hello
     public event EventHandler<OnIlluminationEventArgs> OnIllumination;
     public class OnIlluminationEventArgs : EventArgs {
         public bool IsInLight { get; set; } // how to privatatise set
@@ -42,9 +43,9 @@ public class SpotlightCheck2D : MonoBehaviour {
             }
         } else {
             //Debug.Log("Player Not in Spotlight Angle");
-            OnIllumination?.Invoke(this, new OnIlluminationEventArgs {
-                IsInLight = false
-            });
+            // Don't send an event if player is out of angle
+            // dont want too many events firing at once
+            // I may need to add an event eventually to show in dark.
         }
 
         // Draw rays indicating the spotlight angle
